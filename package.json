@@ -1,0 +1,24 @@
+{
+  "name": "yalpcampstudent",
+  "version": "1.0.0",
+  "description": "YelpCamp",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/01Leviathan10/YalpCampStudent.git"
+  },
+  "author": "leviathan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/01Leviathan10/YalpCampStudent/issues"
+  },
+  "homepage": "https://github.com/01Leviathan10/YalpCampStudent#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3"
+  }
+}

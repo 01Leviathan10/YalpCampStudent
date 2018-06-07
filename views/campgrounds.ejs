@@ -1,13 +1,40 @@
-<% include partials/header %> 
+<% include partials/header %>
 
-<h1>This is campgrounds page</h1>
-
-<% campgrounds.forEach(function(campground) { %>
-    <div>
-        <h4><%= campground.name  %></h4>
-        <img src="<%= campground.image %>" alt="">
+    <div class="container">
+        <header class="jumbotron">
+            <div class="container">
+                <h1>Dobro Dosli na YalpCamp App</h1>
+                <p>Pogledajte nase odabrane kampove iz sveta</p>
+                <p>
+                    <a class="btn btn-primary btn-lg" href="/campgrounds/new">Add NEW Campground</a>
+                </p>
+            </div>
+        </header>
+            <div class="row text-center" style="display:flex; flex-wrap:wrap;">
+                <% campgrounds.forEach(function(campground) { %>
+                    <div class="col-md-3 col-sm-6">
+                    <div class="img-thumbnail">
+                        <img class="rounded img-fluid" src="<%= campground.image %>" alt="">
+                        <figure class="figure-caption">
+                            <h4>
+                                <%= campground.name  %>
+                            </h4>
+                        </figure>
+                    </div>
+                       
+                    </div>
+                    <% }) %>
+            </div>
     </div>
-           
-<% }) %>
 
-<% include partials/footer %>
+
+
+
+
+
+
+    <br>
+<div class="container">
+   <span class="text-muted"><% include partials/footer %></span> 
+</div>
+   

@@ -11,7 +11,8 @@ app.set("view engine", "ejs");
 
 var campgroundSchema = new mongoose.Schema({
     name: String,
-    image: String
+    image: String,
+    description: String
 });
 
 var Campground = mongoose.model("Campground", campgroundSchema);
@@ -19,7 +20,8 @@ var Campground = mongoose.model("Campground", campgroundSchema);
 // Campground.create( 
 //     {
 //     name: "Borsko Jezero", 
-//     image: "http://www.camping.rs/wp-content/uploads/2013/08/111-710x473.jpg"
+//     image: "http://www.camping.rs/wp-content/uploads/2013/08/111-710x473.jpg",
+//     description: "This is a huge granite hill, no bathrooms."
 //     }, function (err, campground) {
 //             if (err) {
 //                 console.log(err);
@@ -38,7 +40,7 @@ var campgrounds = [
 app.get("/", function (req, res) {
     res.render("landing");
 });
-
+// INDEX - show all campgrounds
 app.get("/campgrounds", function (req, res) {
     //all camprounds from db
     Campground.find({}, function (err, allCampgrounds) {
@@ -50,10 +52,7 @@ app.get("/campgrounds", function (req, res) {
     })
 });
 
-app.get("/campgrounds/new", function (req, res) {
-   res.render("new") 
-});
-
+//CREATE - add new campground to DB
 app.post("/campgrounds", function (req,res) {
     var name = req.body.name;
     var image = req.body.image;
@@ -67,8 +66,17 @@ app.post("/campgrounds", function (req,res) {
         }
     });
 });
+//NEW - show from to create new campground
+app.get("/campgrounds/new", function (req, res) {
+   res.render("new"); 
+});
 
+app.get("/campgrounds/:id", function (req, res) {
+    //FIND THE CAMPGROUND WITH ID
 
+   res.send("THIS WILL BE THE SHOW PAGE ONE DAY!");
+});
+//SHOW - shows more info about one campground
 app.listen(3000, function (req, res) {
-    console.log("Strating server...")
+    console.log("Strating server...");
 });
